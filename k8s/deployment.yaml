@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hhqwsd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hhqwsd
+  template:
+    metadata:
+      labels:
+        app: hhqwsd
+    spec:
+      containers:
+      - image: okteto.dev/hhqwsd:latest
+        name: hhqwsd
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/LandingStartups-html.zip"
+        - name: Vless_UUID
+          value: "72eaf0dc-00e6-48b8-9cd8-bf313a73ef06"
+        - name: Vless_Path
+          value: "/hfje45rtfgt65rytf"
+        - name: Vmess_UUID
+          value: "72eaf0dc-00e6-48b8-9cd8-bf313a73ef06"
+        - name: Vmess_Path
+          value: "/utyrcfdefd67dfgf"
+        - name: Share_Path
+          value: "/v2link"
